@@ -1,0 +1,12 @@
+animes = ('Naruto', 'Dragon ball Z', 'soul eater', 'full metal alchemist', 'Boku no hero', 'Shittara no slime',
+         'Dr.Stone', 'JoJo', 'Kimetsu no Yaiba', 'Inuysha', 'Shamam King', 'Yu Gi Oh', 'Re:zero')
+print('-=' *15)
+print(f'Lista de animes:{animes}')
+print('-=' *15)
+print(f'Os 5 primeiros são {animes[0:5]}')
+print('-=' *15)
+print(f'Os ultimos 4 são {animes[-4:]}')
+print('-=' *15)
+print(f'Times em ordem alfabética: {sorted(animes)}')
+print('-=' *15)
+print(f'O Kimetsu no Yaiba está na {animes.index("Kimetsu no Yaiba")+1}ª posição')
