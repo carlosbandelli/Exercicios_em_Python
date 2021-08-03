@@ -1,2 +1,0 @@
-carlos;22
-maria;32
