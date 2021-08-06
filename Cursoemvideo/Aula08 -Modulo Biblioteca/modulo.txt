@@ -1,0 +1,8 @@
+Para usar um modulo ou um biblioteca usasse
+import 'nome da biblioteca'
+para fazer um impor especfico dentro da biblioteca, quando voce só que um componente nela
+faz assim
+from doce import biblioteca pudim
+Para saber quantas bibliotecas tem no seu projecto
+vá em file - setting - project - project interpreter
+se quiser adicionar alguma aperte no simbolo +
