@@ -1,5 +1,0 @@
-Tipos primitivos
-Int: 7, -4, 0, 9875 ( numeros inteiros)
-float:4.5, 0.076, -15.223, 7.0 (numeros reais)
-bool: True e False ( sempre tem que ter a primeira letra maiuscula)
-str: 'olá'
