@@ -41,7 +41,7 @@ def lista_primos(n):
         else:
             lp.append(i)
             counter += 1
-            lp.sort
+    lp.sort
     print(lp)
 
 lista_primos(7)
