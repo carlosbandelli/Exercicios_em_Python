@@ -49,13 +49,16 @@ lista_primos(7)
 
 
 def eh_perfeito(n):
+    lista = []
     soma = 0
     for c in range (1, n):
         if n % c == 0:
+            lista.append(c)
             soma += c
     if soma == n:
         print(True)
     else:
         print(False)
-
+    lista.sort()
+    print(lista)
 eh_perfeito(6)
