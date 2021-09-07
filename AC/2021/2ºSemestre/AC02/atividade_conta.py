@@ -5,62 +5,68 @@
 
 class Conta:
     def __init__(self, titular, agencia, numero, saldo_inicial):
-        self.titular = titular
-        self.agencia = agencia
-        self.numero = numero
-        self.saldo_inicial = 0
-        self.operacoes = [('saldo inicial', saldo_inicial)]
+        self.__titular = titular
+        self.__agencia = agencia
+        self.__numero = numero
+        self.__saldo = saldo_inicial
+        self.__ativa = False
+        self.__operacoes = [('saldo inicial', saldo_inicial)]
+        pass
+
 
     @property
     def titular(self):
-        return self.titular
+        return self.__titular
+
 
     @property
     def agencia(self):
-        return self.agencia
+        return self.__agencia
+
 
     @property
     def numero(self):
-        return self.numero
-
-    @property
-    def saldo(self):
-        return self.__saldo_inicial
+        return self.__numero
 
     @property
     def ativa(self):
-        return self.ativo
+        return self.__ativa
+
+
+    @property
+    def saldo(self):
+        return self.__saldo
+
 
     @ativa.setter
     def ativa(self, situacao):
-        """
-      Implemente o setter ativa
-        """
-        pass
+        if isinstance (situacao, bool):
+            self.__ativa = situacao
+        return
+
 
     def depositar(self, valor):
-        if valor <= 0:
-            return 'Deposito acima de R$1.00'
-        self.__saldo_inicial += valor
-        return 'Deposito feito com sucesso'
+        if self.__ativa == True and valor > 0:
+            self.__saldo += valor
+            self.__operacoes.append(('deposito', valor))
+        return
+
 
     def sacar(self, valor):
-        if valor < 0:
-            return 'Valor dever ser positivo'
-        if valor > self.__saldo_inicial:
-            return 'Saldo Insuficiente'
-        self.__saldo_inicial -= valor
-        return 'Saque realizado com sucesso'
+        if self.__ativa == True and self.__saldo >= valor and valor > 0:
+            self.__saldo -= valor
+            self.__operacoes.append(('saque', valor))
+        return
+
 
     def transferir(self, conta_destino, valor):
-        if conta_destino != self.agencia:
-            return 'Conta invalida'
-        if valor <= 0:
-            return 'Valor acima de R$1.00 por Transferencia'
-        self.__saldo_inicial += valor
+        if self.__ativa == True and conta_destino.ativa == True:
+            if valor > 0 and valor <= self.__saldo:
+                self.sacar(valor)
+                conta_destino.depositar(valor)
+                self.__operacoes.append(('transferencia', valor))
+        return
+
 
     def tirar_extrato(self):
-        """
-        Implemente o método tirar_extrato()
-        """
-        pass
+        return self.__operacoes
